@@ -4,9 +4,12 @@
   "version": "0.1.0",
   "identifier": "com.ashanti.desktop",
   "build": {
-    "frontendDist": ["../index.html"]
+    "frontendDist": [
+      "../index.html"
+    ]
   },
   "app": {
+    "withGlobalTauri": true,
     "windows": [
       {
         "title": "Forêt des Ancêtres — Les âmes de Loïc",
@@ -21,7 +24,10 @@
   },
   "bundle": {
     "active": true,
-    "targets": ["nsis"],
+    "targets": [
+      "nsis"
+    ],
+    "createUpdaterArtifacts": true,
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
@@ -29,5 +35,17 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ]
+  },
+  "plugins": {
+    "updater": {
+      "requireSignedVersion": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDFCRDg4QzI5OTg0RDhFQTYKUldTbWprMllLWXpZRzJkbVJ6cnNrbnQ2S1htMk9YQzJ6UStlTzFuT3hUWFlhM1U5R0Y0UHdkZHIK",
+      "endpoints": [
+        "https://github.com/diece1/ashanti/releases/latest/download/latest.json"
+      ],
+      "windows": {
+        "installMode": "passive"
+      }
+    }
   }
 }

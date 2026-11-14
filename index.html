@@ -902,7 +902,21 @@ const toggleFS=()=>{try{document.fullscreenElement?document.exitFullscreen():doc
 const tick=()=>sfx(560,.05,'sine',.05);
 function openOpts(from){optFrom=from;state='opts';mi=0}
 function closeOpts(){saveCfg();state=optFrom;mi=optFrom==='pause'?1:1}
-const menuItems0=()=>state==='title'?[['Commencer l’aventure',()=>newGame()],['Paramètres',()=>openOpts('title')]]:
+const tauriGlobal=window.__TAURI__;
+if(tauriGlobal&&tauriGlobal.core&&tauriGlobal.core.Channel){
+  tauriGlobal.updater={check:async()=>{const m=await tauriGlobal.core.invoke('plugin:updater|check');return m?{version:m.version,downloadAndInstall:async()=>{await tauriGlobal.core.invoke('plugin:updater|download_and_install',{onEvent:new tauriGlobal.core.Channel(),rid:m.rid})},close:async()=>tauriGlobal.core.invoke('plugin:resources|close',{rid:m.rid})}:null}};
+  tauriGlobal.process={relaunch:()=>tauriGlobal.core.invoke('plugin:process|restart')};
+}
+async function checkForUpdates(){
+  try{
+    const update=await window.__TAURI__.updater.check();
+    if(!update){say('Le jeu est à jour.',240);return}
+    if(!confirm('Une mise à jour ('+update.version+') est disponible. La télécharger et l’installer maintenant ?')){await update.close();return}
+    await update.downloadAndInstall();
+    await window.__TAURI__.process.relaunch();
+  }catch(e){say('Impossible de vérifier (pas de connexion ?)',300)}
+}
+const menuI tems0=()=>state==='title'?[['Commencer l’aventure',()=>newGame()],['Paramètres',()=>openOpts('title')],['Voir les mises à jour',()=>checkForUpdates()]]:
   state==='pause'?[['Reprendre',()=>{state='play'}],['Paramètres',()=>openOpts('pause')],['Recommencer la zone',()=>{build(zi);state='play'}],['Retour au titre',()=>{state='title';mi=0}]]:state==='credits'?[['Visiter le site officiel',()=>openSite()],['Retour',()=>{state='opts';mi=OPTS.length-2}]]:OPTS;
 function adjust(o,d){
   if(o.t==='s')CFG[o.k]=Math.max(0,Math.min(1,Math.round((CFG[o.k]+d*.1)*10)/10));
@@ -1025,6 +1039,7 @@ function drawOpts(){ctx.fillStyle='rgba(2,10,10,.78)';ctx.fillRect(0,0,VW,VH);
   ctx.font='italic 12px '+FONT;ctx.textAlign='center';ctx.fillStyle='#9fc4b5';ctx.fillText('↑ ↓ choisir · ← → modifier · Entrée valider · Échap retour',VW/2,y+h-34);ctx.fillText('La difficulté s’applique à la prochaine zone chargée. Réglages enregistrés automatiquement.',VW/2,y+h-16)}
 function drawTitle(){center('Forêt des Ancêtres',150,'600 56px Georgia','#efe6cf');center('Les âmes de Loïc',196,'italic 26px Georgia','#6fe3c1');
   if(state==='credits'){drawCredits();vignette();return}if(state==='opts'){drawOpts();vignette();return}
+  if(toast.n>0){ctx.font='italic 15px Georgia';ctx.fillStyle='#ffe7a3';ctx.textAlign='center';ctx.fillText(toast.t,VW/2,238)}
   drawButtons(menuItems().map(m=>m[0]),262);
   ctx.font='12px '+FONT;ctx.fillStyle='#9fc4b5';ctx.textAlign='center';
   ctx.fillText('Q / D ou ← → : marcher · Espace : sauter (double saut) · X : lance · C : boule d’âme · Maj : esquive',VW/2,VH-62);ctx.fillText('V : pouvoir ancestral (jauge pleine) · F : ailes d’âme · Tab : carte · E : potion · P : pause · M : son',VW/2,VH-44);
