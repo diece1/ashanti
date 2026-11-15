@@ -1,0 +1,269 @@
+{
+ "idle": {
+  "file": "assets/boss/akuma/idle.png",
+  "w": 176,
+  "h": 198,
+  "ax": 90.0,
+  "ay": 189.0,
+  "kind": "body",
+  "up": 2
+ },
+ "marche": {
+  "file": "assets/boss/akuma/marche.png",
+  "w": 186,
+  "h": 200,
+  "ax": 90.0,
+  "ay": 192.0,
+  "kind": "body",
+  "up": 2
+ },
+ "course": {
+  "file": "assets/boss/akuma/course.png",
+  "w": 230,
+  "h": 180,
+  "ax": 90.0,
+  "ay": 171.0,
+  "kind": "body",
+  "up": 2
+ },
+ "saut": {
+  "file": "assets/boss/akuma/saut.png",
+  "w": 220,
+  "h": 218,
+  "ax": 105.0,
+  "ay": 211.0,
+  "kind": "body",
+  "up": 2
+ },
+ "attaque_epee": {
+  "file": "assets/boss/akuma/attaque_epee.png",
+  "w": 362,
+  "h": 234,
+  "ax": 168.0,
+  "ay": 226.0,
+  "kind": "body",
+  "up": 2
+ },
+ "combo": {
+  "file": "assets/boss/akuma/combo.png",
+  "w": 258,
+  "h": 218,
+  "ax": 109.0,
+  "ay": 209.0,
+  "kind": "body",
+  "up": 2
+ },
+ "frappe_lourde": {
+  "file": "assets/boss/akuma/frappe_lourde.png",
+  "w": 348,
+  "h": 230,
+  "ax": 151.0,
+  "ay": 223.0,
+  "kind": "body",
+  "up": 2
+ },
+ "degats": {
+  "file": "assets/boss/akuma/degats.png",
+  "w": 162,
+  "h": 196,
+  "ax": 66.0,
+  "ay": 189.0,
+  "kind": "body",
+  "up": 2
+ },
+ "mort1": {
+  "file": "assets/boss/akuma/mort1.png",
+  "w": 184,
+  "h": 196,
+  "ax": 87.0,
+  "ay": 187.0,
+  "kind": "body",
+  "up": 2
+ },
+ "mort2": {
+  "file": "assets/boss/akuma/mort2.png",
+  "w": 230,
+  "h": 96,
+  "ax": 104.0,
+  "ay": 89.0,
+  "kind": "body",
+  "up": 2
+ },
+ "forme1": {
+  "file": "assets/boss/akuma/forme1.png",
+  "w": 213,
+  "h": 219,
+  "ax": 106.0,
+  "ay": 207.0,
+  "kind": "card",
+  "up": 1
+ },
+ "forme2": {
+  "file": "assets/boss/akuma/forme2.png",
+  "w": 231,
+  "h": 223,
+  "ax": 115.0,
+  "ay": 211.0,
+  "kind": "card",
+  "up": 1
+ },
+ "forme3": {
+  "file": "assets/boss/akuma/forme3.png",
+  "w": 270,
+  "h": 244,
+  "ax": 134.5,
+  "ay": 230.0,
+  "kind": "card",
+  "up": 1
+ },
+ "portrait": {
+  "file": "assets/boss/akuma/portrait.png",
+  "w": 551,
+  "h": 368,
+  "ax": 286.0,
+  "ay": 364.0,
+  "kind": "body",
+  "up": 1
+ },
+ "lame_du_roi": {
+  "file": "assets/boss/akuma/lame_du_roi.png",
+  "w": 356,
+  "h": 168,
+  "ax": 140.0,
+  "ay": 163.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "onde_ancestrale": {
+  "file": "assets/boss/akuma/onde_ancestrale.png",
+  "w": 258,
+  "h": 134,
+  "ax": 99.0,
+  "ay": 129.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "colonnes_feu": {
+  "file": "assets/boss/akuma/colonnes_feu.png",
+  "w": 412,
+  "h": 240,
+  "ax": 196.0,
+  "ay": 235.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "ecrasement_royal": {
+  "file": "assets/boss/akuma/ecrasement_royal.png",
+  "w": 356,
+  "h": 232,
+  "ax": 164.0,
+  "ay": 227.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "invocation_ombres": {
+  "file": "assets/boss/akuma/invocation_ombres.png",
+  "w": 424,
+  "h": 160,
+  "ax": 231.0,
+  "ay": 155.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "jugement_ancestral": {
+  "file": "assets/boss/akuma/jugement_ancestral.png",
+  "w": 524,
+  "h": 228,
+  "ax": 254.0,
+  "ay": 224.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "aura_ancienne": {
+  "file": "assets/boss/akuma/aura_ancienne.png",
+  "w": 240,
+  "h": 166,
+  "ax": 100.0,
+  "ay": 151.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "symboles_lumineux": {
+  "file": "assets/boss/akuma/symboles_lumineux.png",
+  "w": 300,
+  "h": 166,
+  "ax": 143.0,
+  "ay": 151.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "fissures_sol": {
+  "file": "assets/boss/akuma/fissures_sol.png",
+  "w": 300,
+  "h": 166,
+  "ax": 165.0,
+  "ay": 162.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "flammes_royales": {
+  "file": "assets/boss/akuma/flammes_royales.png",
+  "w": 240,
+  "h": 220,
+  "ax": 109.0,
+  "ay": 215.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "zone_maudite": {
+  "file": "assets/boss/akuma/zone_maudite.png",
+  "w": 300,
+  "h": 220,
+  "ax": 151.0,
+  "ay": 215.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "explosion_finale": {
+  "file": "assets/boss/akuma/explosion_finale.png",
+  "w": 300,
+  "h": 224,
+  "ax": 147.0,
+  "ay": 215.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "coeur_roi": {
+  "file": "assets/boss/akuma/coeur_roi.png",
+  "w": 120,
+  "h": 118,
+  "ax": 65.0,
+  "ay": 111.0,
+  "kind": "icon",
+  "up": 2
+ },
+ "pouvoir_ancestral": {
+  "file": "assets/boss/akuma/pouvoir_ancestral.png",
+  "w": 112,
+  "h": 118,
+  "ax": 47.0,
+  "ay": 111.0,
+  "kind": "icon",
+  "up": 2
+ },
+ "revelation": {
+  "file": "assets/boss/akuma/revelation.png",
+  "w": 102,
+  "h": 112,
+  "ax": 46.0,
+  "ay": 105.0,
+  "kind": "icon",
+  "up": 2
+ },
+ "arene_trone": {
+  "file": "assets/boss/akuma/arene_trone.jpg",
+  "w": 330,
+  "h": 270,
+  "kind": "arena"
+ }
+}

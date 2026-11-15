@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Personnages — Forêt des Ancêtres</title><link rel="stylesheet" href="css/persos.css">
+<style>body{margin:0;padding:20px;background:#04100f;color:#efe6cf;font-family:"Segoe UI",system-ui,sans-serif}h1{text-align:center;font:italic 800 26px Georgia,serif;color:#f2a93b;margin:0 0 16px}#info{text-align:center;margin-top:10px;font:italic 14px Georgia,serif}small{display:block;text-align:center;opacity:.6;margin-top:8px}</style></head>
+<body><h1>Personnages jouables</h1>
+<div class="persos-select" id="sel"></div>
+<div class="persos-preview" id="pv"><canvas id="cv" width="760" height="300"></canvas>
+<div class="persos-anims" id="an"></div><div id="info"></div>
+<small>← → marcher · Maj + ← → courir · Espace sauter · X pouvoir · Z attaque (Kana)</small></div>
+<script src="js/persos.js"></script>
+<script>
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d'),sel=document.getElementById('sel'),an=document.getElementById('an'),info=document.getElementById('info'),pv=document.getElementById('pv');
+let cur=null,spr=null,x=380,vy=0,y=250,face=1,forced=null,keys={};
+Persos.load('').then(()=>{Persos.list.forEach(p=>{const d=document.createElement('div');d.className='perso-card';d.style.setProperty('--c',p.color);
+ d.innerHTML='<img src="'+p.portrait+'" alt=""><h3>'+p.name+'</h3><div class="pw">'+p.power.name+'</div><div class="stats">'+Object.entries(p.stats).map(([k,v])=>'<span>'+k+' <span class="bar"><i style="width:'+v*20+'%"></i></span></span>').join('')+'</div>';
+ d.onclick=()=>pick(p.id);sel.appendChild(d)});
+ pick('freddy');requestAnimationFrame(loop)});
+function mark(){[...an.children].forEach(b=>b.classList.toggle('on',b.textContent===forced))}
+function pick(id){cur=Persos.get(id);spr=new Persos.Sprite(id);forced=null;mark();document.querySelectorAll('.perso-card').forEach((c,i)=>c.classList.toggle('selected',Persos.list[i].id===id));pv.style.setProperty('--c',cur.color);an.innerHTML='';Object.keys(spr.A).filter(a=>a!=='attack'||cur.anims).forEach(a=>{const b=document.createElement('button');b.textContent=a;b.onclick=()=>{forced=a;spr.play(a,true);mark()};an.appendChild(b)});info.innerHTML='<b style="color:'+cur.color+'">'+cur.power.name+'</b> — '+cur.power.desc}
+addEventListener('keydown',e=>{keys[e.key]=1;if((e.key==='z'||e.key==='Z')&&cur.anims){forced=null;spr.play('attack',true);mark()}if(e.key==='x'||e.key==='X'){forced=null;spr.play('power',true);mark()}if(e.key===' '&&y>=250){vy=-330;forced=null;e.preventDefault()}});
+addEventListener('keyup',e=>keys[e.key]=0);
+let last=0;function loop(t){requestAnimationFrame(loop);const dt=Math.min(.05,(t-last)/1000||0);last=t;
+ const run=keys.Shift,dir=(keys.ArrowRight?1:0)-(keys.ArrowLeft?1:0),sp=run?220:110;
+ if(dir){face=dir;if(spr.anim!=='power'||spr.done)x+=dir*sp*dt}x=Math.max(60,Math.min(700,x));vy+=900*dt;y+=vy*dt;if(y>=250){y=250;vy=0}
+ if(!forced&&!(spr.anim==='power'&&!spr.done))spr.auto({onGround:y>=250,vx:dir,run});
+ spr.update(dt);ctx.clearRect(0,0,760,300);ctx.fillStyle='rgba(255,255,255,.08)';ctx.fillRect(0,252,760,2);ctx.fillStyle='rgba(0,0,0,.35)';ctx.beginPath();ctx.ellipse(x,254,26,6,0,0,7);ctx.fill();
+ spr.draw(ctx,x,y+2,face,cur.scale*2.4)}
+</script></body></html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Forêt des Ancêtres — Boss (démo)</title>
+<link rel="stylesheet" href="src/boss.css">
+</head>
+<body class="fb-demo">
+<header><h1>FORÊT DES ANCÊTRES — BOSS</h1>
+  <select id="boss"><option value="akuma">Akuma</option><option value="nguema">Nguéma</option><option value="mokele">Mokélé</option></select>
+  <button id="music">♪ Musique</button><button id="revive">↺ Réinitialiser</button>
+  <span style="font-size:12px;opacity:.7">← → déplacer la cible · Espace : coup sur le boss</span></header>
+<main>
+  <div class="fb-stage" id="stage"><canvas id="cv" width="1280" height="720"></canvas></div>
+  <aside class="fb-side">
+    <h2>MOUVEMENTS</h2><div class="fb-row" id="moves"></div>
+    <h2>ATTAQUES</h2><div class="fb-row" id="atks"></div>
+    <h2>POUVOIRS SPÉCIAUX</h2><div class="fb-row" id="spes"></div>
+    <h2>PV</h2><input type="range" id="hp" min="0" max="100" value="100"><div class="fb-row"><button id="dmg">−10 % PV</button><button id="ai">IA : on</button></div>
+    <h2>PHASES</h2><div class="fb-row" id="phs"></div>
+    <h2>RÉCOMPENSES</h2><div class="fb-info" id="rew"></div>
+    <div class="fb-info" id="info"></div>
+  </aside>
+</main>
+<script src="src/boss-data.js"></script>
+<script src="src/boss.js"></script>
+<script>
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d'),W=1280,H=720,GROUND=640;
+let boss=null,arena=null,hud=null,tgt={x:300},log=[],ai=true;
+const $=id=>document.getElementById(id);
+function btn(p,t,f){const b=document.createElement('button');b.textContent=t;b.onclick=f;p.appendChild(b);return b}
+async function pick(id){
+  const o={x:900,y:GROUND,facing:-1,target:tgt,ai};
+  boss=await ForetBosses.create(id,o); const d=boss.def;
+  arena=await ForetBosses.arena(id); if(hud)hud.destroy(); hud=ForetBosses.hud(boss,$('stage'));
+  ForetBosses.music.setPhase(0,d.phases.length);
+  $('moves').innerHTML=$('atks').innerHTML=$('spes').innerHTML=$('phs').innerHTML='';
+  btn($('moves'),'Marche',()=>boss.walk(-1));btn($('moves'),'Course',()=>boss.walk(-1,true));btn($('moves'),'Stop',()=>boss.stop());
+  btn($('moves'),'Saut',()=>boss.jump());btn($('moves'),'Rugir',()=>boss.roar());btn($('moves'),'Dégâts',()=>boss.damage(1));
+  btn($('moves'),'Mort',()=>boss.setHp(0));
+  d.attaques.forEach((a,i)=>btn($('atks'),a.nom,()=>boss.attack(i)));
+  d.speciaux.forEach(s=>btn($('spes'),s.nom,()=>boss.special(s.id,true)));
+  d.phases.forEach((p,i)=>btn($('phs'),(i+1)+'. '+p.nom,()=>{boss.setHp(boss.maxHp*(p.de===1?1:p.de-.001)); boss.setPhase(i);}));
+  $('rew').innerHTML=d.recompenses.map(r=>{const m=boss.image(r.icone);return '<div style="display:flex;align-items:center;gap:8px;margin:4px 0"><img src="'+(m?m.src:'')+'" height="34"> '+r.nom+'</div>'}).join('');
+  $('info').innerHTML='<b>'+d.nom+'</b> — '+d.titre+'<br>PV '+d.pv+'+ · dégâts '+d.degats.join('–')+'<br>Vitesse '+d.vitesse+' · Résistance '+d.resistance+'<br>Arène : '+d.areneNom;
+  boss.on('hit',e=>{ if(e.box&&Math.abs(tgt.x-(e.box.x+e.box.w/2))<e.box.w/2+30) flashT=.25; });
+  boss.on('shake',s=>shakeAll=s); boss.on('death',()=>{rewardT=4});
+  window.boss=boss;
+}
+let flashT=0,shakeAll=0,rewardT=0,last=performance.now();
+function frame(now){
+  const dt=(now-last)/1000;last=now;
+  if(boss){
+    boss.target=ai?tgt:null; boss.autoAI=ai;
+    boss.update(dt);
+    $('hp').value=boss.hpRatio*100; hud.update();
+    shakeAll=Math.max(0,shakeAll-dt*40); flashT=Math.max(0,flashT-dt);
+    ctx.save(); ctx.clearRect(0,0,W,H);
+    if(shakeAll)ctx.translate((Math.random()-.5)*shakeAll,(Math.random()-.5)*shakeAll);
+    if(arena){const s=Math.max(W/arena.width,H/arena.height);ctx.drawImage(arena,(W-arena.width*s)/2,(H-arena.height*s)/2,arena.width*s,arena.height*s)}
+    ctx.fillStyle='rgba(0,0,0,.25)';ctx.fillRect(0,0,W,H);
+    // cible joueur (silhouette)
+    ctx.fillStyle=flashT>0?'#ff5040':'#9fd8ff';ctx.fillRect(tgt.x-14,GROUND-90,28,90);ctx.beginPath();ctx.arc(tgt.x,GROUND-104,14,0,7);ctx.fill();
+    boss.draw(ctx);
+    ctx.restore(); boss.drawCard(ctx,W,H);
+    if(rewardT>0){rewardT-=dt;ctx.fillStyle='rgba(0,0,0,.6)';ctx.fillRect(0,0,W,H);ctx.fillStyle='#f5d78a';ctx.textAlign='center';ctx.font='700 40px Cinzel,serif';ctx.fillText('BOSS VAINCU',W/2,200);
+      boss.def.recompenses.forEach((r,i)=>{const im=boss.image(r.icone);const x=W/2+(i-1)*300;if(im)ctx.drawImage(im,x-50,260,100,100*im.height/im.width);ctx.font='20px Cinzel,serif';ctx.fillText(r.nom,x,430)})}
+  }
+  requestAnimationFrame(frame);
+}
+$('boss').onchange=e=>pick(e.target.value);
+$('revive').onclick=()=>boss.revive();
+$('dmg').onclick=()=>boss.damage(boss.maxHp*.1);
+$('hp').oninput=e=>boss.setHp(boss.maxHp*e.target.value/100);
+$('ai').onclick=e=>{ai=!ai;e.target.textContent='IA : '+(ai?'on':'off');if(!ai)boss.stop()};
+$('music').onclick=e=>{const m=ForetBosses.music;if(m.el&&!m.el.paused){m.stop();e.target.classList.remove('on')}else{m.play();e.target.classList.add('on')}};
+addEventListener('keydown',e=>{if(e.code==='ArrowLeft')tgt.x=Math.max(60,tgt.x-40);if(e.code==='ArrowRight')tgt.x=Math.min(W-60,tgt.x+40);if(e.code==='Space'){e.preventDefault();boss&&boss.damage(boss.maxHp*.03)}});
+const q=new URLSearchParams(location.search);
+pick(q.get('boss')||'akuma').then(()=>{$('boss').value=q.get('boss')||'akuma';requestAnimationFrame(frame)});
+</script></body></html>

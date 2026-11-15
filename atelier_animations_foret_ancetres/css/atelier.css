@@ -1,0 +1,33 @@
+:root{--nuit:#06121f;--nuit2:#0c2236;--eau:#3fc8ff;--lune:#e8f4ff;--ecorce:#c9a45c;--braise:#ff8a2a;--mousse:#6fcf6b;--bord:rgba(120,200,255,.22);color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:60px}
+body{margin:0;background:var(--nuit);color:var(--lune);font:16px/1.55 "Palatino Linotype",Palatino,Georgia,serif}
+h1,h2,h3{font-weight:600;margin:0}
+nav{position:sticky;top:0;z-index:20;display:flex;gap:6px;flex-wrap:wrap;padding:10px 16px;background:rgba(6,18,31,.92);border-bottom:1px solid var(--bord);backdrop-filter:blur(6px)}
+nav a{color:var(--lune);text-decoration:none;padding:4px 10px;border-radius:999px;font-size:14px}
+nav a:hover,nav a:focus-visible{background:var(--nuit2);outline:1px solid var(--eau)}
+section{max-width:1180px;margin:0 auto;padding:40px 16px}
+section>h2{font-size:28px;margin-bottom:6px}.lead{color:#9fb8cc;max-width:70ch;margin:0 0 20px}
+.stage{position:relative;aspect-ratio:16/9;background:#020a14 url(../assets/backgrounds/menu_foret_16x9.png) center/cover;border-radius:12px;overflow:hidden;border:1px solid var(--bord)}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%}
+.menu{position:absolute;left:5%;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;width:min(300px,38%)}
+.titre{position:absolute;left:5%;top:7%;text-shadow:0 2px 14px #000,0 0 30px rgba(63,200,255,.5)}
+.titre h1{font-size:clamp(20px,4.2vw,52px);letter-spacing:.02em;color:#fff}.titre p{margin:0;font-size:clamp(12px,1.9vw,22px);color:var(--ecorce);font-style:italic}
+.btn{font:inherit;font-size:clamp(12px,1.5vw,17px);text-align:left;color:var(--lune);background:rgba(6,18,31,.62);border:1px solid var(--bord);border-left:3px solid var(--eau);padding:.6em 1em;border-radius:6px;cursor:pointer;backdrop-filter:blur(3px);transition:transform .18s,background .18s,border-color .18s}
+.btn:hover,.btn:focus-visible{transform:translateX(8px);background:rgba(20,70,110,.75);border-left-color:var(--braise);outline:none}
+.btn:active{transform:translateX(4px) scale(.98)}.btn.test{border-left-color:var(--mousse);font-size:clamp(11px,1.3vw,15px)}
+.btn.sel{border-left-color:var(--braise);box-shadow:0 0 18px rgba(255,138,42,.45)}
+.toast{position:absolute;right:3%;bottom:5%;background:rgba(0,0,0,.75);padding:.5em 1em;border-radius:6px;font-size:14px;opacity:0;transition:opacity .3s;max-width:40%}.toast.on{opacity:1}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.ctl{font:inherit;font-size:14px;color:var(--lune);background:var(--nuit2);border:1px solid var(--bord);border-radius:6px;padding:5px 12px;cursor:pointer}.ctl:hover,.ctl:focus-visible{border-color:var(--eau);outline:none}
+.grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.carte{background:var(--nuit2);border:1px solid var(--bord);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:6px}
+.carte canvas{width:100%;aspect-ratio:3/4;border-radius:6px;background:repeating-conic-gradient(#10283d 0 25%,#0b1e30 0 50%) 0 0/20px 20px}
+.carte.large canvas{aspect-ratio:3/2}.carte h3{font-size:16px}.meta{font-size:13px;color:#9fb8cc}.note{font-size:13px;margin:0}
+.manque{border-style:dashed;color:#d9b36a}.manque canvas{display:none}
+.cfg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}.cfg label{display:flex;flex-direction:column;gap:4px;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{border-bottom:1px solid var(--bord);padding:6px 8px;text-align:left;vertical-align:top}code,pre{font:13px/1.45 Consolas,monospace}
+pre{background:#020a14;border:1px solid var(--bord);border-radius:8px;padding:12px;overflow-x:auto;max-width:100%}
+.ailes{color:var(--eau)}
+@media(max-width:700px){.menu{width:52%;gap:6px}.toast{max-width:60%}}
+@media(prefers-reduced-motion:reduce){.btn{transition:none}}
+#fxdemo{aspect-ratio:5/2!important}

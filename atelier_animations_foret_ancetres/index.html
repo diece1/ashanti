@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atelier d'animations – Forêt des Ancêtres</title><link rel="stylesheet" href="css/atelier.css"></head><body>
+<nav aria-label="Sections"><a href="#menu">Menu</a><a href="#heros">Héros</a><a href="#env">Environnement</a><a href="#animaux">Animaux</a><a href="#effets">Effets</a><a href="#config">Configuration</a><a href="#export">Intégration</a></nav>
+<section id="menu"><h2>Aperçu du menu principal</h2><p class="lead">L'illustration est fixe. La cascade, la brume, les lucioles, les papillons et les reflets sont animés par-dessus, en direct. Les boutons sont de vrais éléments HTML.</p>
+<div class="stage" id="stage"><canvas id="fx"></canvas>
+<div class="titre"><h1>Forêt des Ancêtres</h1><p>Les âmes de Loïc</p></div>
+<div class="menu"><button class="btn" data-k="start">Commencer l'aventure</button><button class="btn" data-k="opts">Paramètres</button><button class="btn" data-k="maj">Voir les mises à jour</button><button class="btn test" data-k="test">TEST : choisir un niveau</button></div>
+<div class="toast" id="toast" role="status"></div></div>
+<div class="bar"><button class="ctl" id="play-all">Arrêter les animations</button></div></section>
+<section id="heros"><h2>Personnage principal</h2><p class="lead">Dix animations de 8 images, détourées. Les ailes bleues n'apparaissent que dans les animations de pouvoirs : <span class="ailes">transformation, saut spirituel, vol, forme éveillée</span>. Marche, course et roulade n'en ont pas.</p>
+<div class="grille" id="g-hero"></div>
+<div class="grille" style="margin-top:14px"><div class="carte manque"><h3>Animations du héros à créer</h3><p class="note">Aucune image fournie pour : repos animé (respiration, clignement), chute, atterrissage, nage, escalade, coup vertical et combo, retour en garde, bouclier, téléportation, rayon, vol rapide, piqué, atterrissage aérien, retour à la forme normale, mort et réapparition. Rien n'est simulé : chaque emplacement est décrit dans <code>integration/ASSET_MANIFEST.md</code></p></div></div></section>
+<section id="env"><h2>Environnement</h2><p class="lead">Feu de camp et cascades issus de tes images. Brume, lucioles et reflets sont procéduraux (voir le menu).</p><div class="grille" id="g-env"></div></section>
+<section id="animaux"><h2>Animaux</h2><p class="lead">Le cerf, le renard, le lapin et les oiseaux existent seulement dans l'illustration du menu : ils ne sont pas séparés du décor, donc impossible de les animer un par un sans les inventer.</p>
+<div class="grille"><div class="carte manque"><h3>Cerf, renard, lapin</h3><p class="note">Ressource manquante : une spritesheet par animal (idée : 8 frames, respiration, oreilles, tête).</p></div><div class="carte manque"><h3>Oiseaux blancs</h3><p class="note">Ressource manquante : cycle de vol en 8 frames. En attendant, le menu n'en fait pas voler.</p></div><div class="carte"><h3>Papillons bleus</h3><p class="note">Procéduraux, visibles dans le menu (réglage : intensité des particules).</p></div></div></section>
+<section id="effets"><h2>Effets spéciaux</h2><p class="lead">Lance la boule d'énergie : elle voyage seule, laisse une traînée, puis explose en onde de choc (procédurale).</p>
+<div class="carte large"><canvas id="fxdemo" width="900" height="360"></canvas><div class="bar"><button class="ctl" id="launch">Lancer la boule</button></div></div></section>
+<section id="config"><h2>Configuration</h2><div class="cfg">
+<label>Images par seconde max<select class="ctl" id="c-fps"><option value="30">30</option><option value="60" selected>60</option></select></label>
+<label>Vitesse des animations <span id="v-speed">1×</span><input type="range" id="c-speed" min="0.25" max="2" step="0.25" value="1"></label>
+<label>Taille des cartes<input type="range" id="c-size" min="160" max="360" value="230"></label>
+<label>Intensité des particules <span id="v-part">1×</span><input type="range" id="c-part" min="0" max="2" step="0.25" value="1"></label>
+<label>Qualité<select class="ctl" id="c-q"><option value="0.5">Basse</option><option value="1" selected>Moyenne</option><option value="1.5">Haute</option></select></label>
+<label><span><input type="checkbox" id="c-fx" checked> Effets du menu activés</span></label></div></section>
+<section id="export"><h2>Export et intégration</h2><p class="lead">Rien ne touche à ton jeu. Le fichier principal reste intact : Copilot fusionnera les modules avec le prompt de <code>integration/COPILOT_INTEGRATION.md</code>.</p>
+<table><tr><th>Fichier</th><th>Rôle</th></tr>
+<tr><td><code>js/animation-engine.js</code></td><td>Chargement, lecture des spritesheets, boucle unique. Tout est dans <code>window.ForetAtelier</code>.</td></tr>
+<tr><td><code>js/menu-scene.js</code></td><td>Effets du menu : cascade, brume, lucioles, papillons, reflets.</td></tr>
+<tr><td><code>js/manifest.js</code></td><td>Liste des spritesheets (taille, frames, vitesse).</td></tr>
+<tr><td><code>assets/characters, effects, environment</code></td><td>Spritesheets horizontales PNG transparentes, créées depuis tes GIF.</td></tr>
+<tr><td><code>assets/backgrounds</code></td><td>Menu 16:9 et scènes de cascade.</td></tr></table>
+<p><button class="ctl" id="copy">Copier l'exemple d'utilisation</button></p>
+<pre id="snip">const spr = await ForetAtelier.makeSprite('hero_run');   // charge assets/characters/hero_run.png
+// dans ta boucle de jeu :
+spr.step(dt);                          // dt en millisecondes
+spr.draw(ctx, x, y, hauteurEnPixels);  // dessine la frame courante
+
+ForetAtelier.initMenu(stageElement, canvasElement); // effets du menu</pre></section>
+<script src="js/manifest.js"></script><script src="js/animation-engine.js"></script><script src="js/menu-scene.js"></script><script src="js/main.js"></script>
+</body></html>

@@ -1,0 +1,278 @@
+{
+ "p1_idle": {
+  "file": "assets/boss/mokele/p1_idle.png",
+  "w": 198,
+  "h": 194,
+  "ax": 84.0,
+  "ay": 186.0,
+  "kind": "body",
+  "up": 2
+ },
+ "p1_marche": {
+  "file": "assets/boss/mokele/p1_marche.png",
+  "w": 172,
+  "h": 192,
+  "ax": 96.0,
+  "ay": 183.0,
+  "kind": "body",
+  "up": 2
+ },
+ "p1_course": {
+  "file": "assets/boss/mokele/p1_course.png",
+  "w": 228,
+  "h": 190,
+  "ax": 126.0,
+  "ay": 181.0,
+  "kind": "body",
+  "up": 2
+ },
+ "p1_saut": {
+  "file": "assets/boss/mokele/p1_saut.png",
+  "w": 196,
+  "h": 166,
+  "ax": 69.0,
+  "ay": 158.0,
+  "kind": "body",
+  "up": 2
+ },
+ "p1_attaque1": {
+  "file": "assets/boss/mokele/p1_attaque1.png",
+  "w": 300,
+  "h": 218,
+  "ax": 94.0,
+  "ay": 211.0,
+  "kind": "body",
+  "up": 2
+ },
+ "p1_attaque2": {
+  "file": "assets/boss/mokele/p1_attaque2.png",
+  "w": 324,
+  "h": 180,
+  "ax": 199.0,
+  "ay": 173.0,
+  "kind": "body",
+  "up": 2
+ },
+ "p1_attaque3": {
+  "file": "assets/boss/mokele/p1_attaque3.png",
+  "w": 260,
+  "h": 212,
+  "ax": 127.0,
+  "ay": 205.0,
+  "kind": "body",
+  "up": 2
+ },
+ "p1_degats": {
+  "file": "assets/boss/mokele/p1_degats.png",
+  "w": 192,
+  "h": 204,
+  "ax": 105.0,
+  "ay": 195.0,
+  "kind": "body",
+  "up": 2
+ },
+ "p1_mort": {
+  "file": "assets/boss/mokele/p1_mort.png",
+  "w": 314,
+  "h": 94,
+  "ax": 174.0,
+  "ay": 86.0,
+  "kind": "body",
+  "up": 2
+ },
+ "p2_idle": {
+  "file": "assets/boss/mokele/p2_idle.png",
+  "w": 200,
+  "h": 194,
+  "ax": 75.0,
+  "ay": 187.0,
+  "kind": "body",
+  "up": 2
+ },
+ "p2_marche": {
+  "file": "assets/boss/mokele/p2_marche.png",
+  "w": 162,
+  "h": 192,
+  "ax": 89.0,
+  "ay": 185.0,
+  "kind": "body",
+  "up": 2
+ },
+ "p2_course": {
+  "file": "assets/boss/mokele/p2_course.png",
+  "w": 228,
+  "h": 194,
+  "ax": 106.0,
+  "ay": 187.0,
+  "kind": "body",
+  "up": 2
+ },
+ "p2_saut": {
+  "file": "assets/boss/mokele/p2_saut.png",
+  "w": 200,
+  "h": 200,
+  "ax": 82.0,
+  "ay": 193.0,
+  "kind": "body",
+  "up": 2
+ },
+ "p2_attaque1": {
+  "file": "assets/boss/mokele/p2_attaque1.png",
+  "w": 300,
+  "h": 220,
+  "ax": 90.0,
+  "ay": 213.0,
+  "kind": "body",
+  "up": 2
+ },
+ "p2_attaque2": {
+  "file": "assets/boss/mokele/p2_attaque2.png",
+  "w": 324,
+  "h": 196,
+  "ax": 159.0,
+  "ay": 189.0,
+  "kind": "body",
+  "up": 2
+ },
+ "p2_attaque3": {
+  "file": "assets/boss/mokele/p2_attaque3.png",
+  "w": 268,
+  "h": 220,
+  "ax": 136.0,
+  "ay": 213.0,
+  "kind": "body",
+  "up": 2
+ },
+ "p2_degats": {
+  "file": "assets/boss/mokele/p2_degats.png",
+  "w": 190,
+  "h": 212,
+  "ax": 100.0,
+  "ay": 205.0,
+  "kind": "body",
+  "up": 2
+ },
+ "p2_mort": {
+  "file": "assets/boss/mokele/p2_mort.png",
+  "w": 320,
+  "h": 104,
+  "ax": 159.0,
+  "ay": 97.0,
+  "kind": "body",
+  "up": 2
+ },
+ "forme1": {
+  "file": "assets/boss/mokele/forme1.png",
+  "w": 251,
+  "h": 247,
+  "ax": 125.0,
+  "ay": 234.0,
+  "kind": "card",
+  "up": 1
+ },
+ "forme2": {
+  "file": "assets/boss/mokele/forme2.png",
+  "w": 253,
+  "h": 257,
+  "ax": 126.0,
+  "ay": 244.0,
+  "kind": "card",
+  "up": 1
+ },
+ "portrait": {
+  "file": "assets/boss/mokele/portrait.png",
+  "w": 346,
+  "h": 288,
+  "ax": 170.0,
+  "ay": 284.0,
+  "kind": "body",
+  "up": 1
+ },
+ "racines_surgissantes": {
+  "file": "assets/boss/mokele/racines_surgissantes.png",
+  "w": 324,
+  "h": 212,
+  "ax": 161.0,
+  "ay": 206.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "onde_tellurique": {
+  "file": "assets/boss/mokele/onde_tellurique.png",
+  "w": 424,
+  "h": 174,
+  "ax": 220.0,
+  "ay": 170.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "balayage_racines": {
+  "file": "assets/boss/mokele/balayage_racines.png",
+  "w": 368,
+  "h": 220,
+  "ax": 203.0,
+  "ay": 213.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "epines_sol": {
+  "file": "assets/boss/mokele/epines_sol.png",
+  "w": 324,
+  "h": 268,
+  "ax": 162.0,
+  "ay": 264.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "regeneration": {
+  "file": "assets/boss/mokele/regeneration.png",
+  "w": 408,
+  "h": 256,
+  "ax": 208.0,
+  "ay": 252.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "explosion_racinaire": {
+  "file": "assets/boss/mokele/explosion_racinaire.png",
+  "w": 388,
+  "h": 248,
+  "ax": 187.0,
+  "ay": 244.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "fragment_racine": {
+  "file": "assets/boss/mokele/fragment_racine.png",
+  "w": 116,
+  "h": 112,
+  "ax": 56.0,
+  "ay": 105.0,
+  "kind": "icon",
+  "up": 2
+ },
+ "amelioration_resistance": {
+  "file": "assets/boss/mokele/amelioration_resistance.png",
+  "w": 116,
+  "h": 128,
+  "ax": 62.0,
+  "ay": 121.0,
+  "kind": "icon",
+  "up": 2
+ },
+ "fragment_narratif": {
+  "file": "assets/boss/mokele/fragment_narratif.png",
+  "w": 116,
+  "h": 110,
+  "ax": 59.0,
+  "ay": 101.0,
+  "kind": "icon",
+  "up": 2
+ },
+ "arene_sanctuaire": {
+  "file": "assets/boss/mokele/arene_sanctuaire.jpg",
+  "w": 378,
+  "h": 346,
+  "kind": "arena"
+ }
+}

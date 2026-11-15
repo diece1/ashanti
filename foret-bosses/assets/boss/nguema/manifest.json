@@ -1,0 +1,224 @@
+{
+ "idle": {
+  "file": "assets/boss/nguema/idle.png",
+  "w": 182,
+  "h": 164,
+  "ax": 64.0,
+  "ay": 157.0,
+  "kind": "body",
+  "up": 2
+ },
+ "marche": {
+  "file": "assets/boss/nguema/marche.png",
+  "w": 188,
+  "h": 158,
+  "ax": 69.0,
+  "ay": 151.0,
+  "kind": "body",
+  "up": 2
+ },
+ "course": {
+  "file": "assets/boss/nguema/course.png",
+  "w": 200,
+  "h": 172,
+  "ax": 98.0,
+  "ay": 164.0,
+  "kind": "body",
+  "up": 2
+ },
+ "saut": {
+  "file": "assets/boss/nguema/saut.png",
+  "w": 164,
+  "h": 188,
+  "ax": 47.0,
+  "ay": 180.0,
+  "kind": "body",
+  "up": 2
+ },
+ "bond": {
+  "file": "assets/boss/nguema/bond.png",
+  "w": 228,
+  "h": 212,
+  "ax": 47.0,
+  "ay": 205.0,
+  "kind": "body",
+  "up": 2
+ },
+ "ruee": {
+  "file": "assets/boss/nguema/ruee.png",
+  "w": 260,
+  "h": 190,
+  "ax": 72.0,
+  "ay": 183.0,
+  "kind": "body",
+  "up": 2
+ },
+ "griffes": {
+  "file": "assets/boss/nguema/griffes.png",
+  "w": 192,
+  "h": 210,
+  "ax": 90.0,
+  "ay": 203.0,
+  "kind": "body",
+  "up": 2
+ },
+ "rugissement": {
+  "file": "assets/boss/nguema/rugissement.png",
+  "w": 248,
+  "h": 210,
+  "ax": 105.0,
+  "ay": 201.0,
+  "kind": "body",
+  "up": 2
+ },
+ "forme1": {
+  "file": "assets/boss/nguema/forme1.png",
+  "w": 199,
+  "h": 185,
+  "ax": 99.0,
+  "ay": 175.0,
+  "kind": "card",
+  "up": 1
+ },
+ "forme2": {
+  "file": "assets/boss/nguema/forme2.png",
+  "w": 245,
+  "h": 195,
+  "ax": 122.0,
+  "ay": 184.0,
+  "kind": "card",
+  "up": 1
+ },
+ "forme3": {
+  "file": "assets/boss/nguema/forme3.png",
+  "w": 277,
+  "h": 235,
+  "ax": 138.0,
+  "ay": 222.0,
+  "kind": "card",
+  "up": 1
+ },
+ "portrait": {
+  "file": "assets/boss/nguema/portrait.png",
+  "w": 359,
+  "h": 316,
+  "ax": 183.5,
+  "ay": 310.0,
+  "kind": "body",
+  "up": 1
+ },
+ "disparition_obscure": {
+  "file": "assets/boss/nguema/disparition_obscure.png",
+  "w": 208,
+  "h": 256,
+  "ax": 93.0,
+  "ay": 247.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "onde_des_ames": {
+  "file": "assets/boss/nguema/onde_des_ames.png",
+  "w": 216,
+  "h": 248,
+  "ax": 121.0,
+  "ay": 238.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "double_griffes": {
+  "file": "assets/boss/nguema/double_griffes.png",
+  "w": 228,
+  "h": 242,
+  "ax": 120.0,
+  "ay": 219.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "traces_sombres": {
+  "file": "assets/boss/nguema/traces_sombres.png",
+  "w": 240,
+  "h": 216,
+  "ax": 136.0,
+  "ay": 211.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "piliers_ombres": {
+  "file": "assets/boss/nguema/piliers_ombres.png",
+  "w": 274,
+  "h": 218,
+  "ax": 122.0,
+  "ay": 210.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "cercle_ames": {
+  "file": "assets/boss/nguema/cercle_ames.png",
+  "w": 316,
+  "h": 198,
+  "ax": 150.0,
+  "ay": 188.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "charge_obscure": {
+  "file": "assets/boss/nguema/charge_obscure.png",
+  "w": 280,
+  "h": 186,
+  "ax": 123.0,
+  "ay": 177.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "explosion_spirituelle": {
+  "file": "assets/boss/nguema/explosion_spirituelle.png",
+  "w": 266,
+  "h": 230,
+  "ax": 147.0,
+  "ay": 221.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "zone_maudite": {
+  "file": "assets/boss/nguema/zone_maudite.png",
+  "w": 272,
+  "h": 232,
+  "ax": 125.0,
+  "ay": 224.0,
+  "kind": "fx",
+  "up": 2
+ },
+ "essence_ames": {
+  "file": "assets/boss/nguema/essence_ames.png",
+  "w": 160,
+  "h": 168,
+  "ax": 60.0,
+  "ay": 163.0,
+  "kind": "icon",
+  "up": 2
+ },
+ "amelioration_puissance": {
+  "file": "assets/boss/nguema/amelioration_puissance.png",
+  "w": 152,
+  "h": 138,
+  "ax": 69.0,
+  "ay": 130.0,
+  "kind": "icon",
+  "up": 2
+ },
+ "fragment_narratif": {
+  "file": "assets/boss/nguema/fragment_narratif.png",
+  "w": 152,
+  "h": 124,
+  "ax": 63.0,
+  "ay": 117.0,
+  "kind": "icon",
+  "up": 2
+ },
+ "arene_vallee": {
+  "file": "assets/boss/nguema/arene_vallee.jpg",
+  "w": 353,
+  "h": 233,
+  "kind": "arena"
+ }
+}

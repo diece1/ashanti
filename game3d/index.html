@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101812" />
+    <title>ASHANTI 3D — Les âmes de Loïc</title>
+  </head>
+  <body>
+    <main id="app">
+      <canvas id="world" aria-label="Monde 3D du jeu ASHANTI"></canvas>
+      <div id="vignette" aria-hidden="true"></div>
+      <header id="hud" class="hud is-hidden">
+        <div class="hud-panel hero-panel">
+          <div class="eyebrow">VIE DU HÉROS</div>
+          <div id="health" class="health" aria-label="Vie du héros"></div>
+          <div id="chapter-name" class="chapter-name"></div>
+        </div>
+        <div class="hud-panel soul-panel">
+          <span class="eyebrow">ÂMES LIBÉRÉES</span>
+          <strong id="souls">0</strong>
+        </div>
+        <div class="hud-panel objective-panel">
+          <span class="eyebrow">OBJECTIF</span>
+          <span id="objective">Avance dans la forêt.</span>
+        </div>
+        <div class="controls-hint">ZQSD / WASD · Espace sauter · X attaquer · E interagir · Échap pause</div>
+      </header>
+
+      <section id="menu-screen" class="screen" aria-live="polite">
+        <div class="menu-card">
+          <div class="brand-mark">G<span>D</span></div>
+          <p class="eyebrow">GENESIS DIGITAL AGENCY PRÉSENTE</p>
+          <h1>ASHANTI <span>3D</span></h1>
+          <p id="menu-subtitle" class="subtitle">Les âmes de Loïc</p>
+          <p id="menu-description" class="menu-description">
+            Explore la forêt des ancêtres, libère les âmes et retrouve le chemin du sanctuaire.
+          </p>
+          <div class="menu-actions">
+            <button id="start-button" class="button button-primary">Nouvelle partie</button>
+            <button id="continue-button" class="button is-hidden">Continuer</button>
+            <button id="chapters-button" class="button">Choisir un chapitre</button>
+            <button id="options-button" class="button">Paramètres</button>
+          </div>
+          <div id="chapter-grid" class="chapter-grid is-hidden" aria-label="Chapitres"></div>
+          <footer>Développé par Genesis Digital Agency · Kribi, Cameroun</footer>
+        </div>
+      </section>
+
+      <section id="options-screen" class="screen is-hidden" aria-label="Paramètres">
+        <div class="menu-card options-card">
+          <p class="eyebrow">ASHANTI 3D</p>
+          <h2>Paramètres</h2>
+          <label class="setting-row">Musique <input id="music-volume" type="range" min="0" max="1" step="0.05" value="0.6" /></label>
+          <label class="setting-row">Effets sonores <input id="sfx-volume" type="range" min="0" max="1" step="0.05" value="0.8" /></label>
+          <label class="setting-row">Qualité graphique
+            <select id="quality">
+              <option value="low">Basse</option>
+              <option value="medium" selected>Moyenne</option>
+              <option value="high">Élevée</option>
+            </select>
+          </label>
+          <button id="options-back" class="button button-primary">Retour</button>
+        </div>
+      </section>
+
+      <section id="pause-screen" class="screen is-hidden" aria-label="Jeu en pause">
+        <div class="menu-card">
+          <p class="eyebrow">ASHANTI 3D</p>
+          <h2 id="pause-title">Pause</h2>
+          <div class="menu-actions">
+            <button id="resume-button" class="button button-primary">Reprendre</button>
+            <button id="pause-options-button" class="button">Paramètres</button>
+            <button id="title-button" class="button">Retour au titre</button>
+          </div>
+        </div>
+      </section>
+
+      <div id="toast" class="toast is-hidden" role="status"></div>
+      <div id="crosshair" aria-hidden="true"></div>
+    </main>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>

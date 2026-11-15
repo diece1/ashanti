@@ -1,0 +1,32 @@
+/* persos.css — sélection des personnages + prévisualisation (--c = couleur du personnage) */
+.persos-select{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;max-width:760px;margin:0 auto}
+.perso-card{--c:#5fe2ce;background:rgba(3,18,20,.8);border:2px solid rgba(255,255,255,.15);border-radius:10px;padding:10px 8px 12px;text-align:center;color:#efe6cf;cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s}
+.perso-card:hover{transform:translateY(-3px);border-color:var(--c)}
+.perso-card.selected{border-color:var(--c);box-shadow:0 0 18px var(--c)}
+.perso-card img{height:150px;width:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 4px 6px #000)}
+.perso-card h3{margin:6px 0 2px;font:italic 800 18px "Segoe UI",system-ui,sans-serif;color:var(--c)}
+.perso-card .pw{font:italic 12px Georgia,serif;opacity:.85}
+.perso-card .stats{display:flex;gap:6px;justify-content:center;margin-top:6px;font-size:10px;opacity:.85}
+.perso-card .bar{display:inline-block;width:30px;height:5px;background:rgba(255,255,255,.15);border-radius:3px;vertical-align:middle;overflow:hidden}
+.perso-card .bar i{display:block;height:100%;background:var(--c)}
+.persos-preview{max-width:760px;margin:18px auto;text-align:center;--c:#5fe2ce}
+.persos-preview canvas{width:100%;background:linear-gradient(#0b1f2a,#061014);border:2px solid var(--c);border-radius:10px}
+.persos-anims{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:10px}
+.persos-anims button{background:rgba(3,18,20,.85);color:#efe6cf;border:1px solid var(--c);border-radius:6px;padding:6px 12px;font:600 13px "Segoe UI",system-ui,sans-serif;cursor:pointer}
+.persos-anims button.on{background:var(--c);color:#041010}
+.hero-select-overlay{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;box-sizing:border-box;padding:16px;overflow-y:auto;background:radial-gradient(ellipse at 50% 0,rgba(24,78,72,.25),transparent 65%),rgba(2,10,10,.94);backdrop-filter:blur(7px);font-family:"Segoe UI",system-ui,sans-serif;color:#efe6cf}
+.hero-select-panel{position:relative;width:min(100%,840px);max-height:100%;overflow-y:auto;box-sizing:border-box;padding:18px 20px 16px;border:1px solid rgba(95,226,206,.5);border-radius:16px;background:linear-gradient(145deg,rgba(8,31,30,.98),rgba(3,14,16,.98));box-shadow:0 18px 60px rgba(0,0,0,.7),inset 0 1px rgba(255,255,255,.06)}
+.hero-select-kicker{text-align:center;color:#6fe3c1;font:700 10px "Segoe UI",system-ui,sans-serif;letter-spacing:.22em}
+.hero-select-panel h1{margin:4px 0 5px;text-align:center;font:italic 800 30px Georgia,serif;color:#ffe7a3}
+.hero-select-panel>p{margin:0 0 10px;text-align:center;font:italic 14px Georgia,serif;color:#9fc4b5}
+.hero-select-status{width:max-content;margin:0 auto 12px;padding:5px 12px;border:1px solid rgba(242,169,59,.4);border-radius:999px;background:rgba(242,169,59,.08);color:#ffe7a3;font:600 12px "Segoe UI",system-ui,sans-serif}
+.hero-select-overlay .persos-select{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:760px}
+.hero-select-overlay .perso-card{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;min-height:170px;box-sizing:border-box;font-family:"Segoe UI",system-ui,sans-serif;background:linear-gradient(160deg,rgba(13,38,38,.96),rgba(3,17,19,.96))}
+.hero-select-overlay .perso-card img{height:94px}
+.hero-select-overlay .perso-card.selected{border-color:var(--c);box-shadow:0 0 0 1px var(--c),0 0 22px rgba(95,226,206,.28)}
+.hero-select-overlay .perso-card.focused{outline:2px solid rgba(255,231,163,.9);outline-offset:2px;transform:translateY(-2px)}
+.hero-select-overlay .perso-card .stats{flex-wrap:wrap;min-height:16px}
+.hero-select-help{margin-top:10px;text-align:center;color:#789d91;font:500 11px "Segoe UI",system-ui,sans-serif;letter-spacing:.03em}
+.hero-select-back{display:block;margin:12px auto 0;padding:8px 18px;border:1px solid rgba(95,226,206,.7);border-radius:7px;background:rgba(3,18,20,.9);color:#efe6cf;font:600 14px "Segoe UI",system-ui,sans-serif;cursor:pointer}
+.hero-select-back:hover,.hero-select-back:focus-visible,.hero-select-back.focused{border-color:#f2a93b;background:rgba(20,70,66,.88);color:#ffe7a3;outline:none}
+@media(max-width:640px){.hero-select-overlay .persos-select{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.hero-select-panel{padding:14px 10px}.hero-select-overlay .perso-card{min-height:144px;padding:7px 5px}.hero-select-overlay .perso-card img{height:76px}.hero-select-overlay .perso-card h3{font-size:15px}.hero-select-overlay .perso-card .stats{gap:3px;font-size:9px}}

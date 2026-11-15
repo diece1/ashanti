@@ -1,0 +1,16 @@
+/* persos.css — sélection des personnages + prévisualisation (--c = couleur du personnage) */
+.persos-select{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;max-width:760px;margin:0 auto}
+.perso-card{--c:#5fe2ce;background:rgba(3,18,20,.8);border:2px solid rgba(255,255,255,.15);border-radius:10px;padding:10px 8px 12px;text-align:center;color:#efe6cf;cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s}
+.perso-card:hover{transform:translateY(-3px);border-color:var(--c)}
+.perso-card.selected{border-color:var(--c);box-shadow:0 0 18px var(--c)}
+.perso-card img{height:150px;width:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 4px 6px #000)}
+.perso-card h3{margin:6px 0 2px;font:italic 800 18px "Segoe UI",system-ui,sans-serif;color:var(--c)}
+.perso-card .pw{font:italic 12px Georgia,serif;opacity:.85}
+.perso-card .stats{display:flex;gap:6px;justify-content:center;margin-top:6px;font-size:10px;opacity:.85}
+.perso-card .bar{display:inline-block;width:30px;height:5px;background:rgba(255,255,255,.15);border-radius:3px;vertical-align:middle;overflow:hidden}
+.perso-card .bar i{display:block;height:100%;background:var(--c)}
+.persos-preview{max-width:760px;margin:18px auto;text-align:center;--c:#5fe2ce}
+.persos-preview canvas{width:100%;background:linear-gradient(#0b1f2a,#061014);border:2px solid var(--c);border-radius:10px}
+.persos-anims{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:10px}
+.persos-anims button{background:rgba(3,18,20,.85);color:#efe6cf;border:1px solid var(--c);border-radius:6px;padding:6px 12px;font:600 13px "Segoe UI",system-ui,sans-serif;cursor:pointer}
+.persos-anims button.on{background:var(--c);color:#041010}
